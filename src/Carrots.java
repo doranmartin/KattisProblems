@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.Scanner;
 
 public class Carrots {
@@ -6,5 +7,10 @@ public class Carrots {
         input.nextInt();
         int carrots = input.nextInt();
         System.out.println(carrots);
+
+        File test = new File("src/hello.java");
+
+
+
     }
 }

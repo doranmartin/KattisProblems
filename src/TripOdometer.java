@@ -8,21 +8,18 @@ public class TripOdometer {
         // Take in input
         Scanner scanner = new Scanner(System.in);
         int trips = scanner.nextInt();
-        int[] distancesArray = new int[trips];
+        int[] inputDistances= new int[trips];
+        int distanceSum = 0;
         for (int i = 0; i < trips; i++) {
-            distancesArray[i] = scanner.nextInt();
+            inputDistances[i] = scanner.nextInt();
+            distanceSum += inputDistances[i];
         }
 
         // Calculate possibilities
         HashSet<Integer> distances = new HashSet<>();
 
         for (int i = 0; i < trips; i++) {
-            int sum = 0;
-            for (int j = 0; j < trips; j++) {
-                if (j != i)
-                    sum += distancesArray[j];
-            }
-            distances.add(sum);
+            distances.add(distanceSum - inputDistances[i]);
         }
         Integer[] possibleTotals = distances.toArray(new Integer[0]);
         Arrays.sort(possibleTotals);
